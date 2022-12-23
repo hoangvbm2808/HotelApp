@@ -1,0 +1,71 @@
+{% extends 'layout/base.html' %}
+{% block title %} Phiếu Thuê {% endblock %}
+{% block content %}
+<h1 class="header-text text-white text-center">Phiếu Thuê {{ BookingForm.id }}</h1>
+<div class="rom-detail">
+        <div class="img-rom-detail">
+            <img src="{{ url_for('static', filename='images/p1.jpg') }}"  alt="Ảnh">
+        </div>
+        <div class="place-body">
+            <p class="place-time">Mã Phiếu Thuê: {{ BookingForm.id }}</p>
+            <p class="place-time">Khách Hàng: {{ BookingForm.Customer_name1}}</p>
+            <p class="place-time">Phòng Thuê: {{ BookingForm.Room_name}}</p>
+            <button class="btn btn-warning js-place-buy-btn" style="text-decoration:none; color:black">
+               Tính Tiền
+            </button>
+        </div>
+</div>
+<div class="model js-model">
+    <div class="model-container js-model-container">
+        <div class="model-close js-model-close">
+            <i class="ti-close"></i>
+        </div>
+        <header class="model-header">
+            <i class="model-heading-icon ti-bag"></i>
+            Lập Phiếu Thanh Toán
+        </header>
+        <form method="post" action="{{ url_for('PayForm', room_id=BookingForm.Room_id) }}">
+            <div style="background-color: #fff; padding: 1% 1%; display: flex; justify-content: space-around" class ="model-body">
+                <div class="size-info-customer">
+                    <div class="mb-3">
+                      <label for="quantity" class="form-label">Nhập phụ thu</label>
+                      <input type="text" class="form-control model-input" id="quantity" name ="quantity" required placeholder="Nhập phụ thu">
+                    </div>
+                    <div class="mb-3">
+                      <label for="day_number" class="form-label">Số Ngày Thuê</label>
+                      <input type="number" class="form-control model-input" id="day_number" name ="day_number" required placeholder="Nhập Số Ngày">
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 10px;">
+                <button type="submit" class="btn2">
+                    Lập Phiếu
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+     const buyBtns = document.querySelectorAll('.js-place-buy-btn')
+     const model = document.querySelector('.js-model')
+     const modelClose = document.querySelector('.js-model-close')
+     const modelContainer = document.querySelector('.js-model-container')
+     function showBuySticket(){
+           model.classList.add('open')
+     }
+     function hideBuySticket(){
+           model.classList.remove('open')
+     }
+    function stopBuySticket(event){
+           event.stopPropagation()
+    }
+    for(const buyBtn of buyBtns){
+           buyBtn.addEventListener('click', showBuySticket)
+    }
+    modelClose.addEventListener('click', hideBuySticket)
+    model.addEventListener('click', hideBuySticket)
+    modelContainer.addEventListener('click', stopBuySticket)
+
+</script>
+
+{% endblock %}

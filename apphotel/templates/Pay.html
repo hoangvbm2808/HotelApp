@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+{% block title %} Phiếu Thuê {% endblock %}
+{% block content %}
+<h1 class="header-text text-white text-center">Thanh Toán Hóa Đơn</h1>
+<h1 class="header-text text-white text-center">Phiếu Thu Phòng {{ Room.name }}</h1>
+<div class="rom-detail">
+        <div class="img-rom-detail">
+            <img src="{{ url_for('static', filename='images/p1.jpg') }}"  alt="Ảnh">
+        </div>
+        <div class="place-body">
+            <p class="place-time">Mã Phiếu Thu: {{ ReceiptDetails.id }}</p>
+            <p class="place-time">Mã Phòng: {{ ReceiptDetails.product_id}}</p>
+            <p class="place-time">Tên Khách Hàng: {{ BookingForm.Customer_name1 }}</p>
+            <p class="place-time">Tổng tiền: {{ "{:,.2f}".format(ReceiptDetails.price) }} VND</p>
+        </div>
+        <div style="margin: 10px;">
+            <button onclick="window.print()" type="submit" class="btn2" style="background-color: white; color: black;">
+                <a class="nav-link" href="{{ url_for('Done', room_id=ReceiptDetails.product_id) }}">Hoàn Thành</a>
+            </button>
+        </div>
+</div>
+
+{% endblock %}

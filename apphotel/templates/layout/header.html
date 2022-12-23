@@ -1,0 +1,35 @@
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="javascript:void(0)"><img src="{{ url_for('static', filename='images/Trangchu/logo2.jpg') }}" alt="name" class="logo-img"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% if not user %}
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">TRANG CHỦ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">LOẠI PHÒNG</a>
+                            <ul class="menu-none">
+                                {% for p in TypeRoom %}
+                                <li class="nav-item text-capitalize">
+                                    <a class="nav-link" href="/list_room?TypeRoom_id={{ p.id }}">{{ p.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" action="{{ url_for('home') }}">
+                        <input class="form-control me-2" name="from_price" type="number" placeholder="Giá Thấp Nhất">
+                        <input class="form-control me-2" name="to_price" type="number" placeholder="Giá Cao Nhất">
+                        <input class="form-control me-2" name="keyword" type="text" placeholder="Nhập loại phòng cần tìm...">
+                        <input class="btn-danger btn-search" style="padding: 0 1%" type="submit" value="Tìm kiếm">
+                    </form>
+                    <div class="admin"><a href="/recep-login">ĐĂNG NHẬP</a></div>
+                {% endif %}
+            </div>
+</nav>

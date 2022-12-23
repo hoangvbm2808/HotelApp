@@ -1,0 +1,142 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+.text-center{
+    text-align: center;
+}
+.col{
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 33.33333%;
+    padding-top: 15px;
+    overflow:hidden;
+}
+.btn-book:hover {
+    color:#000;
+    background-color: #ccc;
+}
+.btn-book {
+    width: 150px;
+    background-color: #000;
+    color:#fff;
+    border-radius: 5px;
+    border: 0px;
+    padding: 10px 0;
+}
+.menu-none {
+    display:none;
+    position:absolute;
+    background-color: rgb(33, 37, 41);
+    padding-left: 2px;
+    width:144px;
+    z-index: 1000;
+}
+.nav-item:hover .menu-none {
+    display:block;
+}
+.btn-search {
+    width: 200px;
+    border-radius: 5px;
+    background-color: brown;
+}
+.logo-img{
+    width:100%;
+}
+.navbar-brand {
+    width: 3%;
+}
+
+.text-background {
+    padding: 40px 0 10px 0;
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+}
+.background{
+    width: 100%;
+    height: 100vh;
+    margin-top: 0px;
+    padding-top: 50%;
+    background: url('/static/images/Trangchu/ATH.png') center / cover no-repeat;
+    position:relative;
+    overflow: hidden;
+}
+.text-content{
+    position:absolute;
+    bottom:57px;
+    /* left:50%;
+    transform:translateX(-50%); */
+    color:#ccc;
+    text-align: center;
+    width:100%;
+}
+.background .text-header{
+    font-size: 24px;
+    font-weight: 500;
+}
+.background .text-description{
+    font-size: 15px;
+    margin-top: 25px;
+}
+.tour-section-2{
+    background-color:#000;
+    width:100%;
+    overflow:hidden;
+}
+.place-list{
+    width: 70%;
+    margin:auto;
+    overflow:hidden;
+}
+.place-body{
+    background-color: #fff;
+    padding:16px;
+    font-size: 15px;
+
+}
+.place-img{
+    width:100%;
+    display:block;
+    transition: transform .7s ease;
+}
+.img-rom {
+    overflow:hidden;
+}
+.place-img:hover {
+    opacity:0.6;
+    transform: scale(1.2);
+}
+.place-heading{
+    font-size: 15px;
+    font-weight: 550;
+}
+.place-time{
+    margin-top: 15px;
+    color:#757575;
+}
+.place-content{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.foodter {
+    padding: 45px 90px;
+    background-color: #212529;
+    color: #6c757d;
+}
+.img-rom-detail>img {
+    width: 100%;
+}
+.rom-detail {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 40%;
+    background-color: black;
+}
+

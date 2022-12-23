@@ -1,0 +1,163 @@
+{% extends 'layout/base.html' %}
+{% block title %} Lễ Tân {% endblock %}
+{% block content %}
+<style>
+    button {
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color: #212121;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}
+
+.taga {
+    color: firebrick;
+    text-decoration:none
+}
+
+.taga:hover {
+    color: firebrick;
+    text-decoration:none
+}
+.size-info-customer {
+    width: 30%;
+}
+</style>
+{% if err_msg %}
+<div class="alert alert-danger">
+	<h3>{{ err_msg }}</h3>
+</div>
+{% endif %}
+<section style="background-color: #fff; width: 100%; height: 100%">
+        <div class="rom-detail bg-white w-100" style="display: flex">
+            <div class="img-rom-detail w-50" style="margin: 5% 5%" >
+                <img src="{{ url_for('static', filename=Room.image) }}" alt="Ảnh">
+            </div>
+            <div class="place-body w-50" style="margin-top: 5%">
+                <h1 style="font-size: 40px" class="place-heading">{{ Room.name }}</h1>
+                <h4 class="place-time">{{ "{:,.0f}".format(Room.price) }} VND/đêm</h4>
+                <h5 class="place-content">{{ Room.description }}</h5>
+                <p>Số người ở tối đa: {{ Room.max }}</p>
+            </div>
+        </div>
+
+    <form method="post" action="{{ url_for('export_booking_form', room_id=Room.id) }}">
+        <div style="background-color: #fff; padding: 1% 1%; display: flex; justify-content: space-around">
+
+            <div style="width: 12%;margin-right: 2%">
+                <div class="md-form md-outline input-with-post-icon datepicker w-100" style="margin: 25% 0">
+                    <label for="check_in_day">Ngày nhận phòng</label>
+                    <input placeholder="Select date" type="date" id="check_in_day" name="check_in_day" class="form-control">
+                </div>
+                <div class="md-form md-outline input-with-post-icon datepicker w-100" style="margin:25% 0">
+                    <label for="check_out_day">Ngày trả phòng</label>
+                    <input placeholder="Select date" type="date" id="check_out_day" name="check_out_day" class="form-control">
+                </div>
+            </div>
+
+            <div class="size-info-customer">
+                <div class="mb-3">
+                  <label for="name1" class="form-label">Họ tên khách 1</label>
+                  <input type="text" class="form-control" id="name1" name ="name1" required placeholder="Nhập họ và tên">
+                </div>
+                <div class="mb-3">
+                  <label for="citizen_id" class="form-label">CMND/CCCD</label>
+                  <input type="number" class="form-control" id="citizen_id" name ="citizen_id" required placeholder="Nhập CMND/CCCD">
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address" name ="address" required placeholder="Nhập địa chỉ">
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Quốc tịch</label>
+                  <select class="form-select" aria-label="Default select example" id="country" name="country">
+                      <option value="0" selected>Việt Nam</option>
+                      <option value="1">Nước ngoài</option>
+                  </select>
+                </div>
+            </div>
+            <div class="size-info-customer">
+                <div class="mb-3">
+                  <label for="name2" class="form-label">Họ tên khách 2</label>
+                  <input type="text" class="form-control" id="name2" name="name2" placeholder="Nhập họ và tên">
+                </div>
+                <div class="mb-3">
+                  <label for="citizen_id2" class="form-label">CMND/CCCD</label>
+                  <input type="number" class="form-control" id="citizen_id2" name="citizen_id2" placeholder="Nhập CMND/CCCD">
+                </div>
+                <div class="mb-3">
+                  <label for="address2" class="form-label">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address2" name="address2" placeholder="Nhập địa chỉ">
+                </div>
+                <div class="mb-3">
+                    <label for="country2" class="form-label">Quốc tịch</label>
+                  <select class="form-select" aria-label="Default select example" id="country2" name="country2">
+                      <option selected>Việt Nam</option>
+                      <option value="1">Nước ngoài</option>
+                  </select>
+                </div>
+            </div>
+            {% if Room.max == 3 %}
+            <div class="size-info-customer">
+                <div class="mb-3">
+                  <label for="name3" class="form-label">Họ tên khách 3</label>
+                  <input type="text" class="form-control" id="name3" name="name3" placeholder="Nhập họ và tên">
+                </div>
+                <div class="mb-3">
+                  <label for="citizen_id3" class="form-label">CMND/CCCD</label>
+                  <input type="number" class="form-control" id="citizen_id3" name="citizen_id3" placeholder="Nhập CMND/CCCD">
+                </div>
+                <div class="mb-3">
+                  <label for="address3" class="form-label">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address3" name="address3" placeholder="Nhập địa chỉ">
+                </div>
+                <div class="mb-3">
+                    <label for="country3" class="form-label">Quốc tịch</label>
+                  <select class="form-select" aria-label="Default select example" id="country3" name="country3">
+                      <option selected>Việt Nam</option>
+                      <option value="1">Nước ngoài</option>
+                  </select>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div style="margin-left: 50%; transform: translate(-5%, 0%); padding-bottom: 2%">
+            <button type="submit">
+               Đặt Phòng
+            </button>
+        </div>
+    </form>
+
+</section>
+{% endblock %}

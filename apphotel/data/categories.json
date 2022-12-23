@@ -1,0 +1,127 @@
+[{
+ "id": 1,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+ "products_id": 1,
+ "rom_number": 1
+}, {
+ "id": 2,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+  "products_id": 1,
+ "rom_number": 2
+}, {
+ "id": 3,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+  "products_id": 1,
+ "rom_number": 3
+}, {
+ "id": 4,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+  "products_id": 1,
+ "rom_number": 4
+}, {
+ "id": 5,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+  "products_id": 1,
+ "rom_number": 5
+}, {
+ "id": 6,
+ "name": "Tong Thong",
+ "price": 300000,
+ "image": "images/anh1.jpg",
+  "products_id": 1,
+ "rom_number": 6
+}, {
+ "id": 7,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+  "products_id": 2,
+ "rom_number": 1
+}, {
+ "id": 8,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+ "products_id": 2,
+ "rom_number": 2
+}, {
+ "id": 9,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+ "products_id": 2,
+ "rom_number": 3
+}, {
+ "id": 10,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+ "products_id": 2,
+ "rom_number": 4
+}, {
+ "id": 11,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+ "products_id": 2,
+ "rom_number": 5
+}, {
+ "id": 12,
+ "name": "VIP",
+ "price": 300000,
+ "image": "images/anh2.jpg",
+  "products_id": 2,
+ "rom_number": 6
+}, {
+ "id": 13,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+  "products_id": 3,
+ "rom_number": 1
+}, {
+ "id": 14,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+ "products_id": 3,
+ "rom_number": 2
+}, {
+ "id": 15,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+ "products_id": 3,
+ "rom_number": 3
+}, {
+ "id": 16,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+ "products_id": 3,
+ "rom_number": 4
+}, {
+ "id": 17,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+ "products_id": 3,
+ "rom_number": 5
+}, {
+ "id": 18,
+ "name": "Thuong",
+ "price": 300000,
+ "image": "images/anh3.jpg",
+ "products_id": 3,
+ "rom_number": 6
+}]

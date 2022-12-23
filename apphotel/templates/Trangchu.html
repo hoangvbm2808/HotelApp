@@ -1,0 +1,34 @@
+
+{% extends 'layout/base.html' %}
+{% block title %} Lễ Tân {% endblock %}
+
+{% block content %}
+<div class ="background"></div>
+        <div class="tour-section-2">
+            <div class="content-section">
+                {% for p in TypeRoom %}
+                <div class="place-list mb-5">
+                    <h1 class="text-capitalize text-center text-white">Tầng {{ p.id }} ({{ p.name }})</h1>
+                        {% for c in Room if c.TypeRoom_id == p.id%}
+                            <div class="col">
+                                <div class="img-rom">
+                                    <a href="{{ url_for('book_room', room_id = c.id) }}">
+                                        <img src="{{ url_for('static', filename=c.image) }}" alt="Ảnh" class="place-img">
+                                    </a>
+
+                                </div>
+                                <div class="place-body">
+                                    <h2 class="place-heading">{{ c.name }}</h2>
+                                    <p class="place-time">{{ "{:,.0f}".format(c.price) }} VND/đêm</p>
+                                    <p class="place-content">{{ c.description }}</p>
+                                    <button class="btn btn-warning " href="/book-room"><a style="text-decoration:none; color:black" href="{{ url_for('book_room', room_id = c.id) }}">Đặt Phòng</a></button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
+
+

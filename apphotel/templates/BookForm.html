@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block title %} Phiếu Thuê {% endblock %}
+{% block content %}
+<h1 class="header-text text-white text-center">Phiếu Đặt {{ BookingForm.id }}</h1>
+<div class="rom-detail">
+        <div class="img-rom-detail">
+            <img src="{{ url_for('static', filename='images/p1.jpg') }}"  alt="Ảnh">
+        </div>
+        <div class="place-body">
+            <p class="place-time">Mã Phiếu Đặt: {{ BookingForm.id }}</p>
+            <p class="place-time">Khách Hàng: {{ BookingForm.Customer_name1}}</p>
+            <p class="place-time">Phòng Thuê: {{ BookingForm.Room_name}}</p>
+            <button onclick="window.print()" class="btn btn-warning js-place-buy-btn" style="text-decoration:none; color:black">
+               <a href="{{ url_for('BookingForm_detail', id=BookingForm.id) }}">Xuất Phiếu Thuê</a>
+            </button>
+        </div>
+</div>
+
+{% endblock %}
