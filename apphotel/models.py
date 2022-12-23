@@ -39,20 +39,10 @@ class Room(BaseModel):
         return self.name
 
 
-# class User(BaseModel):
-#     name = Column(String(50), nullable=False)
-#     username = Column(String(50), nullable=False, unique=True)
-#     password = Column(String(50), nullable=False)
-#
-#     def __str__(self):
-#         return self.name
-
-
 class Account(BaseModel, UserMixin):
     name = Column(String(50), nullable=False)
     username = Column(String(50), nullable=False, unique=True)
     password = Column(String(50), nullable=False)
-    # avatar = Column(String(100), nullable=False)
     active = Column(Boolean, default=True)
     user_role = Column(Enum(UserRole), default=UserRole.RECEP)
 

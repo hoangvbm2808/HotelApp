@@ -21,7 +21,6 @@ def home():
                            to_price=to_price)
 
 
-
 @app.route("/list_room")
 def list_room():
     TypeRoom_id = request.args.get("TypeRoom_id")
@@ -114,12 +113,10 @@ def export_booking_form(room_id):
     return render_template('BookingForm.html', Room=roo, err_msg=err_msg)
 
 
-
 @app.route("/Room/<int:room_id>")
 def categories_detail(room_id):
     roo = utils.get_room_by_id(room_id)
     return render_template('Chitietphong.html', Room=roo)
-
 
 
 @app.route("/recep-login", methods=['get', 'post'])
@@ -150,8 +147,6 @@ def logout_my_user():
     return redirect(url_for('home'))
 
 
-
-
 @app.route('/admin-login', methods=['post'])
 def signin_admin():
     username = request.form['username']
@@ -170,6 +165,7 @@ def list_booking_form():
     bookingform = utils.get_bookingForm()
     return render_template('ListBookingForm.html', BookingForm=bookingform)
 
+
 @app.route('/list-book-form')
 def list_book_form():
     bookingform = utils.get_bookingForm()
@@ -181,10 +177,12 @@ def BookingForm_detail(id):
     Book = utils.get_bookingForm_by_id(id)
     return render_template('Form.html', BookingForm=Book)
 
+
 @app.route("/BookingForm2/<int:id>")
 def BookingForm_detail2(id):
     Book = utils.get_bookingForm_by_Room_id(id)
     return render_template('Form.html', BookingForm=Book)
+
 
 @app.route("/BookForm/<int:id>")
 def BookForm_detail(id):
